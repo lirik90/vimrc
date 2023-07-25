@@ -33,6 +33,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 Plugin 'iamcco/markdown-preview.nvim'
 
+Plugin 'peterhoeg/vim-qml'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
