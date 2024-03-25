@@ -147,7 +147,10 @@ if exists("g:loaded_webdevicons")
 endif
 
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+nnoremap <leader>ji :YcmCompleter GoToImplementation<CR>
 nnoremap <leader>ja :YcmCompleter GoToAlternateFile<CR>
+nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
 nnoremap <silent> <leader>jRw <cmd>execute 'YcmCompleter RefactorRename' input( 'Rename to: ' )<CR>
 map <F9> :YcmCompleter FixIt<CR>
 
+set autoread
