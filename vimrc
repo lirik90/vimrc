@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -34,6 +34,7 @@ Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 Plugin 'iamcco/markdown-preview.nvim'
 
 Plugin 'peterhoeg/vim-qml'
+" Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -111,6 +112,11 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
+packadd! termdebug
+let g:termdebug_wide=1
+au User TermdebugStartPost call TermDebugSendCommand('source .gdbinit')
+
+
 filetype off
 
 " set tabstop=4 shiftwidth=4 expandtab
@@ -152,5 +158,12 @@ nnoremap <leader>ja :YcmCompleter GoToAlternateFile<CR>
 nnoremap <leader>jr :YcmCompleter GoToReferences<CR>
 nnoremap <silent> <leader>jRw <cmd>execute 'YcmCompleter RefactorRename' input( 'Rename to: ' )<CR>
 map <F9> :YcmCompleter FixIt<CR>
+
+augroup python_files
+    autocmd!
+    autocmd FileType python setlocal noexpandtab
+    autocmd FileType python set tabstop=4
+    autocmd FileType python set shiftwidth=4
+augroup END
 
 set autoread
